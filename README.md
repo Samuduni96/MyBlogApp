@@ -49,7 +49,7 @@ The blog application uses a normalized database schema to store user and blog po
 - posts: Stores blog post data.
 
 ## Screen Shots
-<div style="display: flex>
+<div style="display: flex">
 <img src="/ss/1.jpeg" width="300px">
 <img src="/ss/2.jpeg" width="300px">
 <img src="/ss/3.jpeg" width="300px">
