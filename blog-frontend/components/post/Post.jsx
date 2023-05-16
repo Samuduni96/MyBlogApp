@@ -20,7 +20,7 @@ function Post({post}) {
             </div>
             <div className="text-center">
                 <button className="px-4 py-2 my-2 font-semibold text-blue-700 bg-transparent border border-blue-500 rounded hover:bg-blue-500 hover:text-white hover:border-transparent">
-                    <Link href={`/post/${post._id}`}>Read More...</Link>
+                    <Link href={`http://localhost:5000/api/posts/${post._id}`}>Read More...</Link>
                 </button>
             </div>           
         </div>
