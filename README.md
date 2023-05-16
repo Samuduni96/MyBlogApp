@@ -13,7 +13,7 @@ This is a blog application that allows users to create an account, login, and lo
 ## Technical Stack
 The blog application is built using the following technologies:
 
-- Frontend: Next.js (optimized for performance)
+- Frontend: Next.js 
 - Backend: Node.js
 - Database: MongoDB
 
@@ -21,10 +21,10 @@ The blog application is built using the following technologies:
 To run the blog application locally, follow these steps:
 
 1. Clone the repository: git clone https://github.com/your-username/blog-application.git
-2. Install dependencies: cd blog-application && npm install
-3. Configure the database: Create a MongoDB instance and update the database configuration in config.js with your connection details.
-4. Start the backend server: npm run start
-5. Start the frontend development server: npm run dev
+2. Install dependencies: `npm install`
+3. Configure the database: Create a MongoDB instance and update the database configuration
+4. Start the backend server: `npm run start`
+5. Start the frontend development server: `npm run dev`
 6. Open your browser and visit http://localhost:3000/login to access the blog application.
 
 ## API Endpoints
