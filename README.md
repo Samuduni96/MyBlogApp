@@ -47,3 +47,12 @@ The blog application uses a normalized database schema to store user and blog po
 
 - users: Stores user account information.
 - posts: Stores blog post data.
+
+## Screen Shots
+<div style="display: flex>
+<img src="/ss/1.jpeg" width="300px">
+<img src="/ss/2.jpeg" width="300px">
+<img src="/ss/3.jpeg" width="300px">
+<img src="/ss/4.jpeg" width="300px">
+<img src="/ss/5.jpeg" width="300px">
+</div>
