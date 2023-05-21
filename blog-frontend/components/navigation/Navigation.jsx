@@ -11,9 +11,6 @@ const Navigation = () => {
                     <Link href="/addBlog">ADD BLOG</Link>
                 </li>
                 <li className="mr-20 text-lg text-gray-600 hover:text-blue-500">
-                    <Link href="/single">MY PROFILE</Link>
-                </li>
-                <li className="mr-20 text-lg text-gray-600 hover:text-blue-500">
                     <Link href="/login">LOG OUT</Link>
                 </li>
             </ul> 

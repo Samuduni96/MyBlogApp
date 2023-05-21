@@ -1,24 +1,28 @@
 import Link from "next/link";
 import { Context } from "@/context/Context";
-import { useRef, useContext } from "react";
+import { useRef, useContext, useState } from "react";
 import axios from "axios";
 
 function LoginForm() {
   const userRef = useRef();
   const passwordRef = useRef();
-  const { dispatch, isFetching } = useContext(Context)
+  const { dispatch, isFetching } = useContext(Context);
+  const [ error, setError ] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    dispatch({type: "LOGIN_START"});
+    setError(false);
+    dispatch({ type: "LOGIN_START" });
     try {
       const res = await axios.post("http://localhost:5000/api/auth/login", {
         username: userRef.current.value,
         password: passwordRef.current.value,
       });
-      dispatch({type: "LOGIN_SUCCESS", payload: res.data });
+      dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
+      res.data && window.location.replace("/home");
     } catch (err) {
       dispatch({type: "LOGIN_FAILURE" });
+      setError(true);
     }
   };
 
@@ -46,18 +50,21 @@ function LoginForm() {
                    ref={passwordRef} />
           </div>
           <div className="max-w-full">
-  <div className="flex items-center justify-between text-center">
-    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full"
-      type="submit" disabled={isFetching}>
-      Login
-    </button>
-    </div>
-    <div className="text-center mt-4">
-    <button className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800">
-      <Link href="/register">Register</Link>
-    </button>
-    </div>
-</div>
+          <div className="flex items-center justify-between text-center">
+            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full"
+              type="submit" disabled={isFetching}>
+              Login
+            </button>
+          </div>
+          <div className="text-center mt-4">
+            <button className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800">
+              <Link href="/register">Register</Link>
+            </button>
+          </div>
+          <div className="mb-14 font-bold text-center">
+            { error && <span>Something went wrong...</span> }
+          </div>
+        </div>
         </form>
       </div>
       </div>

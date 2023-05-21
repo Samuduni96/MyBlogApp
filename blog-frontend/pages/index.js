@@ -13,12 +13,4 @@ function HomePage() {
   );
 };
 
-function HomePageWithProvider() {
-  return (
-    <ContextProvider>
-      <HomePage/>
-    </ContextProvider>
-  );
-}
-
-export default HomePageWithProvider;
+export default HomePage;

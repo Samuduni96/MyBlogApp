@@ -3,6 +3,7 @@ const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 const multer = require('multer');
 const cors = require('cors');
+const path = require('path');
 
 const authRoute = require('./routes/auth');
 const userRoute = require('./routes/users');
@@ -13,6 +14,7 @@ const app = express();
 dotenv.config();
 app.use(express.json());
 app.use(cors());
+app.use('/images', express.static(path.join(__dirname, '/images')))
 
 mongoose.connect(process.env.MONGO_URL, {
     useNewUrlParser: true,
@@ -31,7 +33,7 @@ mongoose.connect(process.env.MONGO_URL, {
         },
     });
 
-    const upload = multer({ storage: storage});
+    const upload = multer({ storage: storage });
     app.post('/api/upload', upload.single('file'), (req, res) => {
         res.status(200).json('File has been uplaoded');
     });

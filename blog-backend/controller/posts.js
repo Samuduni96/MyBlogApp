@@ -5,8 +5,10 @@ const createPost = async (req, res) => {
     const newPost = new Post(req.body);
     try {
         const savedPost = await newPost.save();
+        //console.log("Post saved:", savedPost);
         res.status(200).json(savedPost);
     } catch (err) {
+        console.error("Error saving post:", err);
         res.status(500).json(err);
     }
 };
@@ -37,7 +39,8 @@ const updatePost = async (req, res) => {
 // Get one Post
 const getPost = async (req, res) => {
     try {
-        const post = await Post.findById(req.params.id);
+        const post = await Post.findById(req.params.postId);
+        //console.log(post);
         res.status(200).json(post);
     } catch (err) {
         res.status(500).json(err);
